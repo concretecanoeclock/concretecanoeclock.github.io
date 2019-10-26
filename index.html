@@ -1,50 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Calaxy Clock</title>
-<link rel="icon" href="/favicon.ico">
-<link rel="stylesheet" href="index.css">
-<script type="text/javascript" src="index.js"></script>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 42.4vw auto;
+  grid-template-rows: auto auto auto;
+  background-color: #2196F3;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  font-size: 30px;
+  text-align: center;
+}
+.picwidth {
+  width: var(--screenwidth);
+}
+</style>
 </head>
-<body onload="document.submit-to-google-sheet.reset();">
+<body>
 
-<div class="container">
-  <div class="center">
-    <form>
-    <a href="timecard.html">
-      <img src="giphy.gif" style="width:200px">
-    </a>
-    <p class="serif">Calaxy Clock</p>
-    <p class="serif2">software updated 10/10, 6:05pm </p>
-    </form>
-    <br>
-    <form name="submit-to-google-sheet">
-      <input id="name" name="name" type="text" placeholder="Name" required size=25px><br>
-      <select id="job selection" >
-        <option value="Laborer-Technician">Laborer/Technician</option>
-        <option value="Principle Design Engineer">Principle Design Engineer</option>
-        <option value="Design Manager">Design Manager</option>
-        <option value="Project Construction Manager">Project Construction Manager</option>
-        <option value="Construction Superintendent">Construction Superintendent</option>
-        <option value="Project Design Engineer">Project Design Engineer</option>
-        <option value="Quality Manager">Quality Manager</option>
-        <option value="Graduate Field Engineer (EIT)">Graduate Field Engineer (EIT)</option>
-        <option value="Technician-Drafter">Technician/Drafter</option>
-        <option value="Clerk/Office Admin">Clerk/Office Admin</option>
-      </select><br>
-      <input id="division" name="division" type="text" placeholder="Division" required size=25px><br>
-      <p class="serif2">
-      <input type="radio" name="in/out radio" id="in radio" value="IN">In
-      <input type="radio" name="in/out radio" id="out radio" value="OUT">Out
-      <br></p>
-      <br>
-      <button type="submit" onclick="resetFormPls()" form="submit-to-google-sheet">Clock in/out</button>
-      <input id="job" name="job" type="hidden" required><br>
-      <input id="in/out" name="in/out" type="hidden"><br>
-    </form>
+<div class="grid-container">
+  <div class="grid-item">
+    <p id="screenwidth">TL</p>
+  </div>
+  <div class="grid-item">
+    TR
+  </div>
+  <div class="grid-item">
+    <img src=walkingScale150SlicePrimary.gif class=picwidth>
+  </div>
+  <div class="grid-item">
+    R
+  </div>
+  <div class="grid-item">
+    BL
+  </div>
+  <div class="grid-item">
+    BR
   </div>
 </div>
 
-
 </body>
+
+<script>
+let root = document.documentElement;
+
+root.addEventListener("resize", e => {
+  root.style.setProperty('--screenwidth', window.screenX + "px");
+  document.getElementById("screenwidth").innerHTML = "Hellow World"
+})
+
+</script>
 </html>
