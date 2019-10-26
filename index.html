@@ -2,55 +2,64 @@
 <html>
 <head>
 <style>
-.grid-container {
-  display: grid;
-  grid-template-columns: 42.4vw auto;
-  grid-template-rows: auto auto auto;
-  background-color: #2196F3;
+.TL{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width:calc(var(--screenWidth)*0.424);
+  height:calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
 }
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  font-size: 30px;
-  text-align: center;
+.TR{
+  position: absolute;
+  top: 0px;
+  left: calc(var(--screenWidth)*0.424);
+  width: calc(0.577*var(--screenWidth));
+  height:calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
 }
-.picwidth {
-  width: var(--screenwidth);
+.pic {
+  position: absolute;
+  top: calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
+  left: 0;
+  width:calc(var(--screenWidth)*0.424);
+  height:calc(0.255*var(--screenWidth));
+}
+.R{
+  position: absolute;
+  top: calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
+  left: calc(var(--screenWidth)*0.424);
+  width: calc(0.577*var(--screenWidth));
+  height:calc(0.255*var(--screenWidth));
+}
+.BL{
+  position: absolute;
+  top: calc(calc((var(--screenHeight) - 0.255*var(--screenWidth))/2) + calc(0.255*var(--screenWidth)));
+  left: 0;
+  width:calc(var(--screenWidth)*0.424);
+  height:calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
+}
+.BR{
+  position: absolute;
+  top: calc(calc((var(--screenHeight) - 0.255*var(--screenWidth))/2) + calc(0.255*var(--screenWidth)));
+  left: calc(var(--screenWidth)*0.424);
+  width: calc(0.577*var(--screenWidth));
+  height: calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
 }
 </style>
 </head>
 <body>
-
-<div class="grid-container">
-  <div class="grid-item">
-    <p id="screenwidth">TL</p>
-  </div>
-  <div class="grid-item">
-    TR
-  </div>
-  <div class="grid-item">
-    <img src=walkingScale150SlicePrimary.gif class=picwidth>
-  </div>
-  <div class="grid-item">
-    R
-  </div>
-  <div class="grid-item">
-    BL
-  </div>
-  <div class="grid-item">
-    BR
-  </div>
-</div>
-
+  <img class="TL" src=walkingScaleUp150SliceTL.gif>
+  <img class="TR" src=walkingScaleUp150SliceTR.gif>
+  <img class="pic" src=walkingScale150SlicePrimary.gif>
+  <img class="R" src=walkingScaleUp150SliceR.gif>
+  <img class="BL" src=walkingScaleUp150SliceBL.gif>
+  <img class="BR" src=walkingScaleUp150SliceBR.gif>
 </body>
-
 <script>
-let root = document.documentElement;
+  let root = document.documentElement;
 
-root.addEventListener("resize", e => {
-  root.style.setProperty('--screenwidth', window.screenX + "px");
-  document.getElementById("screenwidth").innerHTML = "Hellow World"
-})
-
+  window.addEventListener("resize", e => {
+    root.style.setProperty('--screenWidth', window.innerWidth + "px");
+    root.style.setProperty('--screenHeight', window.innerHeight + "px");
+  })
 </script>
 </html>
