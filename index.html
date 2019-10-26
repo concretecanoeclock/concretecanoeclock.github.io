@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <style>
 .TL{
   position: absolute;
@@ -44,6 +45,9 @@
   width: calc(0.577*var(--screenWidth));
   height: calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
 }
+.preload{
+  visibility: hidden;
+}
 </style>
 </head>
 <body>
@@ -66,5 +70,16 @@
     root.style.setProperty('--screenWidth', window.innerWidth + "px");
     root.style.setProperty('--screenHeight', window.innerHeight + "px");
   })
+
+</script>
+<script>
+$(window).load(function() {
+    $('.preload').attr('src', function(i,a){
+        $(this).attr('src','')
+            .removeClass('preload')
+            .attr('src',a);
+    });
+});
+window.onblur= function() {window.onfocus= function () {location.reload(true)}};
 </script>
 </html>
