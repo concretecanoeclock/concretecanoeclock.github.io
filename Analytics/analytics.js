@@ -14,7 +14,7 @@ function graph_generator(category){
             "translate(" + margin.left + "," + margin.top + ")");
 
   //Read the data
-  d3.csv("Data Conglomeration/Files/jobs/" + category + ".csv",
+  d3.csv("../Data Conglomeration/Files/jobs/" + category + ".csv",
 
     // When reading the csv, I must format variables:
     function(d){
