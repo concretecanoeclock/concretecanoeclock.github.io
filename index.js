@@ -8,6 +8,9 @@ function resetFormPls(){
   var job_selected = document.getElementById("job selection").value
   document.getElementById("job").value = job_selected
 
+  var division_selected = document.getElementById("division selection").value
+  document.getElementById("division").value = division_selected
+
   const scriptURL = 'https://script.google.com/macros/s/AKfycbyLM0kKJaeoDkBudNT7bYv9DMKgHqllrfsPCWMM2llQVGZiGaT-/exec'
   const form = document.forms['submit-to-google-sheet']
   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
@@ -20,7 +23,8 @@ function resetFormPls(){
   document.getElementById("in/out").value = ""
   document.getElementById("in radio").checked = false
   document.getElementById("out radio").checked = false
-  document.getElementById("job selection").value = "Laborer/Technician"
+  document.getElementById("job selection").value = "Laborer-Technician"
+  document.getElementById("division selection").value = "Construction"
 }
 
 let root = document.documentElement;
