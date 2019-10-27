@@ -7,6 +7,7 @@
 <script type="text/javascript" src="index.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
+
 <body>
 <div class="scrollbarsetting">
   <img class="TL preload" src=Images/Walking/walkingScaleUp150SliceTL.gif>
@@ -27,8 +28,8 @@
     <br>
     <form name="submit-to-google-sheet">
       <input id="name" name="name" type="text" placeholder="Name" required size=25px><br>
-      <select id="job selection" >
-        <option value="Laborer-Technician">Laborer/Technician</option>
+      <select id="job selection" required>
+        <option value="Laborer-Technician">Laborer-Technician</option>
         <option value="Principle Design Engineer">Principle Design Engineer</option>
         <option value="Design Manager">Design Manager</option>
         <option value="Project Construction Manager">Project Construction Manager</option>
@@ -39,23 +40,27 @@
         <option value="Technician-Drafter">Technician/Drafter</option>
         <option value="Clerk/Office Admin">Clerk/Office Admin</option>
       </select><br>
-      <input id="division" name="division" type="text" placeholder="Division" required size=25px><br>
+      <select id="division selection" required>
+        <option value="Construction">Construction</option>
+        <option value="Graphics">Graphics</option>
+        <option value="Materials">Materials</option>
+        <option value="Paddling">Paddling</option>
+        <option value="Structural Analysis & Hull Design">Structural Analysis & Hull Design</option>
+      </select><br>
       <p class="serif2">
-      <input type="radio" name="in/out radio" id="in radio" value="IN">In
+      <input type="radio" name="in/out radio" id="in radio" value="IN" required>In
       <input type="radio" name="in/out radio" id="out radio" value="OUT">Out
       <br></p>
       <br>
       <button type="submit" onclick="resetFormPls()" form="submit-to-google-sheet">Clock in/out</button>
       <input id="job" name="job" type="hidden" required><br>
+      <input id="division" name="division" type="hidden"><br>
       <input id="in/out" name="in/out" type="hidden"><br>
     </form>
   </div>
 </div>
 </body>
-<script>
 
-
-</script>
 <script>
 $(window).load(function() {
     $('.preload').attr('src', function(i,a){
