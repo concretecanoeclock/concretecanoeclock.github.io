@@ -1,80 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Calaxy Clock</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="index.css">
+<script type="text/javascript" src="index.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<style>
-div.scrollbarsetting{
-  overflow: hidden;
-}
-.TL{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width:calc(var(--screenWidth)*0.424);
-  height:calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
-}
-.TR{
-  position: absolute;
-  top: 0px;
-  left: calc(var(--screenWidth)*0.424);
-  width: calc(0.577*var(--screenWidth) - 1px);
-  height:calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
-}
-.pic {
-  position: absolute;
-  top: calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
-  left: 0;
-  width:calc(var(--screenWidth)*0.424);
-  height:calc(0.255*var(--screenWidth));
-}
-.R{
-  position: absolute;
-  top: calc((var(--screenHeight) - 0.255*var(--screenWidth))/2);
-  left: calc(var(--screenWidth)*0.424);
-  width: calc(0.577*var(--screenWidth) - 1px);
-  height:calc(0.255*var(--screenWidth));
-}
-.BL{
-  position: absolute;
-  top: calc(calc((var(--screenHeight) - 0.255*var(--screenWidth))/2) + calc(0.255*var(--screenWidth)));
-  left: 0;
-  width:calc(var(--screenWidth)*0.424);
-  height:calc((var(--screenHeight) - 0.255*var(--screenWidth) - 1px)/2);
-}
-.BR{
-  position: absolute;
-  top: calc(calc((var(--screenHeight) - 0.255*var(--screenWidth))/2) + calc(0.255*var(--screenWidth)));
-  left: calc(var(--screenWidth)*0.424);
-  width: calc(0.577*var(--screenWidth) - 1px);
-  height: calc((var(--screenHeight) - 0.255*var(--screenWidth) - 1px)/2);
-}
-.preload{
-  visibility: hidden;
-}
-</style>
 </head>
 <body>
 <div class="scrollbarsetting">
-  <img class="TL preload" src=walkingScaleUp150SliceTL.gif>
-  <img class="TR preload" src=walkingScaleUp150SliceTR.gif>
-  <img class="pic preload" src=walkingScale150SlicePrimary.gif>
-  <img class="R preload" src=walkingScaleUp150SliceR.gif>
-  <img class="BL preload" src=walkingScaleUp150SliceBL.gif>
-  <img class="BR preload" src=walkingScaleUp150SliceBR.gif>
+  <img class="TL preload" src=Images/Walking/walkingScaleUp150SliceTL.gif>
+  <img class="TR preload" src=Images/Walking/walkingScaleUp150SliceTR.gif>
+  <a href="Timecard/timecard.html">
+    <img class="pic preload" src=Images/Walking/walkingScale150SlicePrimary.gif>
+  </a>
+  <img class="R preload" src=Images/Walking/walkingScaleUp150SliceR.gif>
+  <img class="BL preload" src=Images/Walking/walkingScaleUp150SliceBL.gif>
+  <img class="BR preload" src=Images/Walking/walkingScaleUp150SliceBR.gif>
+</div>
+<div class="container">
+  <div class="center">
+    <form>
+    <p class="serif">Calaxy Clock</p>
+    <p class="serif2">software updated 10/10, 6:05pm </p>
+    </form>
+    <br>
+    <form name="submit-to-google-sheet">
+      <input id="name" name="name" type="text" placeholder="Name" required size=25px><br>
+      <select id="job selection" >
+        <option value="Laborer-Technician">Laborer/Technician</option>
+        <option value="Principle Design Engineer">Principle Design Engineer</option>
+        <option value="Design Manager">Design Manager</option>
+        <option value="Project Construction Manager">Project Construction Manager</option>
+        <option value="Construction Superintendent">Construction Superintendent</option>
+        <option value="Project Design Engineer">Project Design Engineer</option>
+        <option value="Quality Manager">Quality Manager</option>
+        <option value="Graduate Field Engineer (EIT)">Graduate Field Engineer (EIT)</option>
+        <option value="Technician-Drafter">Technician/Drafter</option>
+        <option value="Clerk/Office Admin">Clerk/Office Admin</option>
+      </select><br>
+      <input id="division" name="division" type="text" placeholder="Division" required size=25px><br>
+      <p class="serif2">
+      <input type="radio" name="in/out radio" id="in radio" value="IN">In
+      <input type="radio" name="in/out radio" id="out radio" value="OUT">Out
+      <br></p>
+      <br>
+      <button type="submit" onclick="resetFormPls()" form="submit-to-google-sheet">Clock in/out</button>
+      <input id="job" name="job" type="hidden" required><br>
+      <input id="in/out" name="in/out" type="hidden"><br>
+    </form>
+  </div>
 </div>
 </body>
 <script>
-  let root = document.documentElement;
 
-  window.addEventListener("load", e => {
-    root.style.setProperty('--screenWidth', window.innerWidth + "px");
-    root.style.setProperty('--screenHeight', window.innerHeight + "px");
-  })
-
-  window.addEventListener("resize", e => {
-    root.style.setProperty('--screenWidth', window.innerWidth + "px");
-    root.style.setProperty('--screenHeight', window.innerHeight + "px");
-  })
 
 </script>
 <script>

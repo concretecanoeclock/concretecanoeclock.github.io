@@ -23,4 +23,16 @@ function resetFormPls(){
   document.getElementById("job selection").value = "Laborer/Technician"
 }
 
+let root = document.documentElement;
+
+window.addEventListener("load", e => {
+  root.style.setProperty('--screenWidth', window.innerWidth + "px");
+  root.style.setProperty('--screenHeight', window.innerHeight + "px");
+})
+
+window.addEventListener("resize", e => {
+  root.style.setProperty('--screenWidth', window.innerWidth + "px");
+  root.style.setProperty('--screenHeight', window.innerHeight + "px");
+})
+
 // Credit to  https://github.com/jamiewilson/form-to-google-sheets for the primary write to google sheet functionality!
